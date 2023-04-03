@@ -1,0 +1,26 @@
+    [
+        {
+            "id": 1,
+            "author": "Alice",
+            "description": "Rédiger le rapport de fin d'année",
+            "validated": true
+        },
+        {
+            "id": 2,
+            "author": "Bob",
+            "description": "Préparer la réunion du comité de direction",
+            "validated": false
+        },
+        {
+            "id": 3,
+            "author": "Charlie",
+            "description": "Finaliser la conception de la nouvelle application",
+            "validated": false
+        },
+        {
+            "id": 4,
+            "author": "Dave",
+            "description": "Tester la nouvelle version du logiciel",
+            "validated": true
+        }
+    ]

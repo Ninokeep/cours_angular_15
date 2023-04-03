@@ -1,0 +1,16 @@
+.card-container {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10rem;
+}
+
+.card-container-author {}
+
+.card-container-description {}
+
+.card-container-checkbox {}
+
+.deleted {
+    text-decoration: line-through;
+}

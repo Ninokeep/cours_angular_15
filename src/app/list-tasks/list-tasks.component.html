@@ -1,0 +1,9 @@
+<div>
+    <app-tasks-form></app-tasks-form>
+    <div style="padding-top:1rem;">
+        <h1 style="text-align: center;">Tasks</h1>
+        <div *ngFor="let item of tasks">
+            <app-tasks [author]="item.author" [description]="item.description" [validated]="item.validated"></app-tasks>
+        </div>
+    </div>
+</div>
