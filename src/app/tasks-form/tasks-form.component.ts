@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Component, OnDestroy } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { TasksService } from '../services/tasks.service';
 import { DialogService } from '../tasks/dialog/services/dialog.service';
@@ -11,7 +11,7 @@ import { DialogTaskOpenComponent } from '../tasks/dialog/dialog-task-open/dialog
   templateUrl: './tasks-form.component.html',
   styleUrls: ['./tasks-form.component.scss']
 })
-export class TasksFormComponent {
+export class TasksFormComponent implements OnDestroy {
 
 
 
@@ -22,19 +22,26 @@ export class TasksFormComponent {
 
   }
 
+  ngOnDestroy(): void {
+    this.taskService.unSubscribe();
+  }
+
   formGroup = new FormGroup({
-    author: new FormControl<string | null>(''),
-    description: new FormControl<string | null>('')
+    author: new FormControl<string | null>('', [Validators.required]),
+    description: new FormControl<string | null>('', [Validators.required])
   });
 
 
   onSubmit() {
+    if (this.formGroup.valid) {
+      this.taskService.addTasks({
+        author: this.formGroup.controls.author.value as string,
+        description: this.formGroup.controls.description.value as string,
+        validated: false
+      })
 
-    this.taskService.addTasks({
-      author: this.formGroup.controls.author.value as string,
-      description: this.formGroup.controls.description.value as string,
-      validated: false
-    })
+      this.dialogRef.close();
+    }
   }
 
   closeDialog() {

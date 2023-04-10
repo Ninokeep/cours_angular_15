@@ -24,11 +24,7 @@ export class DialogComponent {
       }
     });
 
-    diagLogRef.afterClosed().subscribe((result: Tasks) => {
-      this.author = result.author;
-      this.description = result.description;
-      this.validated = result.validated;
-    })
+    diagLogRef.afterClosed().subscribe()
   }
 
 }

@@ -22,6 +22,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './services/auth/auth.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
+import { TrimWordDirective } from './shared/trim-word';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { MatIconModule } from '@angular/material/icon';
     ListTasksComponent,
     TasksFormComponent,
     DialogComponent,
-    DialogTaskOpenComponent
+    DialogTaskOpenComponent,
+    TrimWordDirective
+
   ],
   imports: [
     BrowserModule,
@@ -54,8 +57,7 @@ import { MatIconModule } from '@angular/material/icon';
   },
     DialogService,
     AuthGuard,
-    AuthService
-  ],
+    AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
