@@ -9,7 +9,11 @@
 
 .card-container-description {}
 
-.card-container-checkbox {}
+.card-container-checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .deleted {
     text-decoration: line-through;

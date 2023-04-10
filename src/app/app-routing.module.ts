@@ -9,6 +9,9 @@ const routes: Routes = [
   },
   {
     path: 'list-tasks', component: ListTasksComponent
+  },
+  {
+    path: '', redirectTo: 'list-tasks', pathMatch: 'full'
   }
 ];
 

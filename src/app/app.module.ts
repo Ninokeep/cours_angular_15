@@ -8,22 +8,54 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ListTasksComponent } from './list-tasks/list-tasks.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TasksFormComponent } from './tasks-form/tasks-form.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { DialogComponent } from './tasks/dialog/dialog.component';
+import { DialogTaskOpenComponent } from './tasks/dialog/dialog-task-open/dialog-task-open.component';
+import { MatButtonModule } from '@angular/material/button'
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { DialogService } from './tasks/dialog/services/dialog.service';
+import { AuthGuard } from './guards/auth.guard';
+import { AuthService } from './services/auth/auth.service';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
     AppComponent,
     TasksComponent,
     ListTasksComponent,
-    TasksFormComponent
+    TasksFormComponent,
+    DialogComponent,
+    DialogTaskOpenComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatSlideToggleModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatProgressSpinnerModule,
+    MatIconModule
   ],
-  providers: [],
+  providers: [{
+    provide: MatDialogRef,
+    useValue: {}
+  },
+    DialogService,
+    AuthGuard,
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

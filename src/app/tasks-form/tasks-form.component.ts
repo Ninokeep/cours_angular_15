@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { TasksService } from '../services/tasks.service';
+import { DialogService } from '../tasks/dialog/services/dialog.service';
+import { MatDialogRef } from '@angular/material/dialog';
+import { DialogTaskOpenComponent } from '../tasks/dialog/dialog-task-open/dialog-task-open.component';
 
 @Component({
   selector: 'app-tasks-form',
@@ -10,8 +13,12 @@ import { TasksService } from '../services/tasks.service';
 })
 export class TasksFormComponent {
 
-  id = 2121;
-  constructor(private TasksService: TasksService) {
+
+
+  constructor(
+    private taskService: TasksService,
+    private dialogRef: MatDialogRef<DialogTaskOpenComponent>
+  ) {
 
   }
 
@@ -22,13 +29,15 @@ export class TasksFormComponent {
 
 
   onSubmit() {
-    this.TasksService.addTasks({
-      id: this.id++,
+
+    this.taskService.addTasks({
       author: this.formGroup.controls.author.value as string,
       description: this.formGroup.controls.description.value as string,
       validated: false
-    }).subscribe(response => {
-      console.log(response);
     })
+  }
+
+  closeDialog() {
+    this.dialogRef.close();
   }
 }

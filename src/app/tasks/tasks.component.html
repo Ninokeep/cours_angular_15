@@ -1,15 +1,22 @@
-<div class="card-container">
+<mat-card>
+    <div class="card-container">
 
-    <div class="card-container-author">
-        <h3>{{author}}</h3>
+        <div class="card-container-author">
+            <h3>{{author}}</h3>
+        </div>
+
+        <div class="card-container-description">
+            <p [ngClass]="{'deleted': validated === true}">{{description}}</p>
+        </div>
+
+        <div class="card-container-checkbox">
+            <mat-slide-toggle [(ngModel)]="validated" (ngModelChange)="onChange($event)"></mat-slide-toggle>
+
+            <button mat-icon-button color="warn" aria-label="remove tasks" (click)="onDeleted()">
+                <mat-icon>remove</mat-icon>
+            </button>
+        </div>
+
+
     </div>
-
-    <div class="card-container-description">
-        <p [ngClass]="{'deleted': validated === true}">{{description}}</p>
-    </div>
-
-    <div class="card-container-checkbox">
-        <input type="checkbox" [(ngModel)]="validated" (ngModelChange)="onChange($event)" />
-    </div>
-
-</div>
+</mat-card>

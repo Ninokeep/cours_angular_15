@@ -1,8 +1,17 @@
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-
-    <input type="text" placeholder="author" formControlName="author" />
-    <input type="text" placeholder="description" formControlName="description" />
-    <button type="submit">Submit</button>
-
-
+    <h1 mat-dialog-title>New task</h1>
+    <div mat-dialog-content class="container-form">
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your name</mat-label>
+            <input matInput matNativeControl formControlName="author">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Insert the task</mat-label>
+            <input matInput matNativeControl formControlName="description">
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="closeDialog()">Cancel</button>
+        <button mat-button xtype="submit">Submit</button>
+    </div>
 </form>

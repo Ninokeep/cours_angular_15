@@ -1,7 +1,7 @@
 
 
 export interface Tasks {
-    id: number;
+    id?: number;
     author: string;
     description: string;
     validated: boolean;
