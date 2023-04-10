@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Tasks } from '../utils/tasks';
 import { TasksService } from '../services/tasks.service';
 
@@ -7,7 +7,7 @@ import { TasksService } from '../services/tasks.service';
   templateUrl: './list-tasks.component.html',
   styleUrls: ['./list-tasks.component.scss']
 })
-export class ListTasksComponent implements OnInit {
+export class ListTasksComponent implements OnInit, OnDestroy {
 
   public tasks: Tasks[] = [];
   public loadingTasks = false;
@@ -28,4 +28,9 @@ export class ListTasksComponent implements OnInit {
     this.tasksService.deleteTask(id);
     this.tasksService.getTasks();
   }
+
+  ngOnDestroy(): void {
+    this.tasksService.unSubscribe();
+  }
+
 }
