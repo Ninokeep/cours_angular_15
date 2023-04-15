@@ -9,3 +9,21 @@
     overflow: auto;
     scrollbar-width: thin;
 }
+
+.container-no-task {
+    text-align: center;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        font-size: 3rem;
+    }
+}
+
+.title {
+    font-size: 2rem;
+    letter-spacing: .1rem;
+    font-weight: 400;
+}

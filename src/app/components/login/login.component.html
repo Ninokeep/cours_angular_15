@@ -1,0 +1,20 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form">
+    <h1>Login</h1>
+    <div class="container-form">
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput matNativeControl formControlName="email" trim-word>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput matNativeControl formControlName="password" trim-word>
+            </mat-form-field>
+        </div>
+    </div>
+    <div>
+        <button mat-raised-button type="submit">Login</button>
+    </div>
+</form>

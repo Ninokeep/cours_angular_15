@@ -23,6 +23,7 @@ import { AuthService } from './services/auth/auth.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 import { TrimWordDirective } from './shared/trim-word';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { TrimWordDirective } from './shared/trim-word';
     TasksFormComponent,
     DialogComponent,
     DialogTaskOpenComponent,
-    TrimWordDirective
+    TrimWordDirective,
+    LoginComponent
 
   ],
   imports: [
