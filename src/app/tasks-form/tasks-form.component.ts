@@ -9,18 +9,13 @@ import { DialogTaskOpenComponent } from '../tasks/dialog/dialog-task-open/dialog
 @Component({
   selector: 'app-tasks-form',
   templateUrl: './tasks-form.component.html',
-  styleUrls: ['./tasks-form.component.scss']
+  styleUrls: ['./tasks-form.component.scss'],
 })
 export class TasksFormComponent implements OnDestroy {
-
-
-
   constructor(
     private taskService: TasksService,
     private dialogRef: MatDialogRef<DialogTaskOpenComponent>
-  ) {
-
-  }
+  ) {}
 
   ngOnDestroy(): void {
     this.taskService.unSubscribe();
@@ -28,17 +23,16 @@ export class TasksFormComponent implements OnDestroy {
 
   formGroup = new FormGroup({
     author: new FormControl<string | null>('', [Validators.required]),
-    description: new FormControl<string | null>('', [Validators.required])
+    description: new FormControl<string | null>('', [Validators.required]),
   });
-
 
   onSubmit() {
     if (this.formGroup.valid) {
       this.taskService.addTasks({
         author: this.formGroup.controls.author.value as string,
         description: this.formGroup.controls.description.value as string,
-        validated: false
-      })
+        validated: false,
+      });
 
       this.dialogRef.close();
     }

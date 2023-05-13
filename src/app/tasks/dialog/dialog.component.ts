@@ -5,26 +5,23 @@ import { Tasks } from '../../utils/tasks';
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
-  styleUrls: ['./dialog.component.scss']
+  styleUrls: ['./dialog.component.scss'],
 })
 export class DialogComponent {
-
   author?: string;
   description?: string;
   validated?: boolean;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog) {}
 
   openDialog(): void {
     const diagLogRef = this.dialog.open(DialogTaskOpenComponent, {
       data: {
         author: this.author,
         description: this.description,
-        validated: this.validated
-      }
+        validated: this.validated,
+      },
     });
-
-    diagLogRef.afterClosed().subscribe()
+    diagLogRef.afterClosed().subscribe();
   }
-
 }
